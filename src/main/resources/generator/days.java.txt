@@ -1,0 +1,43 @@
+package com.xqx.calendar;
+import java.util.*;
+import com.xqx.enums.HolidayEnums;
+import com.xqx.enums.LieuEnums;
+import com.xqx.enums.WorkdayEnums;
+import java.time.LocalDate;
+
+public class Days {
+
+    public final static Map<String, LieuEnums> LIEU_DAYS = new TreeMap<>() {
+        {
+        [#th:block th:each="item, stat: ${lieuMap}"]
+            put("[[${stat.current.key}]]", LieuEnums.[[${stat.current.value}]]);
+        [/th:block]
+        }
+    };
+
+    public final static Map<String, HolidayEnums> HOLIDAYS = new TreeMap<>() {
+        {
+        [#th:block th:each="item, stat: ${holidayMap}"]
+            put("[[${stat.current.key}]]", HolidayEnums.[[${stat.current.value}]]);
+        [/th:block]
+        }
+    };
+
+    public final static Map<String, WorkdayEnums> WORKDAYS = new TreeMap<>() {
+        {
+        [#th:block th:each="item, stat: ${workDayMap1}"]
+            put("[[${stat.current.key}]]", WorkdayEnums.[[${stat.current.value}]]);
+        [/th:block]
+        }
+    };
+
+    public final static Map<String, HolidayEnums> WEEKENDS = new TreeMap<>() {
+        {
+        [#th:block th:each="item, stat: ${weekendMap}"]
+            put("[[${stat.current.key}]]", HolidayEnums.[[${stat.current.value}]]);
+        [/th:block]
+        }
+    };
+
+
+}
